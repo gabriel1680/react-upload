@@ -1,12 +1,17 @@
 import { Component } from "react";
-import { Title } from "../styles/styles";
+
+import GlobalStyle from "../styles/global";
+import { Container, Content } from "../styles/styles";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Title>Hello world</Title>
-      </div >
+      <Container>
+        <Content>
+          teste
+        </Content>
+        <GlobalStyle />
+      </Container>
     );
   }
 }
