@@ -5,7 +5,7 @@ const dragActive = css`
 `;
 
 const dragReject = css`
-    border-color: #78e5d5;
+    border-color: #e57878;
 `;
 
 export const DropContainer = styled.div.attrs({

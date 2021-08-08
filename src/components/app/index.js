@@ -6,11 +6,20 @@ import Upload from "../upload";
 import FileList from "../fileList";
 
 class App extends Component {
+
+  state = {
+    uploadedFiles: []
+  };
+
+  handleUpload(files) {
+    console.log(files);
+  }
+
   render() {
     return (
       <Container>
         <Content>
-          <Upload />
+          <Upload onUpload={this.handleUpload} />
           <FileList />
         </Content>
         <GlobalStyle />

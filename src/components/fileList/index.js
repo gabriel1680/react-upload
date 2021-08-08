@@ -18,6 +18,7 @@ function FileList() {
                 </FileInfo>
 
                 <Status>
+                    {/* <div> */}
                     <CircularProgressbar
                         styles={{
                             root: { width: 24 },
@@ -32,6 +33,7 @@ function FileList() {
 
                     <MdCheckCircle size={24} color="#78e5d5" />
                     <MdError size={24} color="#e57878" />
+                    {/* </div> */}
                 </Status>
             </li>
         </Container>
