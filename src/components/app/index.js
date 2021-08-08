@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { uniqueId } from "lodash";
+import filesize from "filesize";
 
 import GlobalStyle from "../global/global";
 import { Container, Content } from "./styles";
@@ -11,16 +13,35 @@ class App extends Component {
     uploadedFiles: []
   };
 
-  handleUpload(files) {
-    console.log(files);
-  }
+  handleUpload = files => {
+    const uploadedFiles = files.map(file => ({
+      file,
+      id: uniqueId(),
+      name: file.name,
+      readableSize: filesize(file.size),
+      preview: URL.createObjectURL(file),
+      progress: 0,
+      uploaded: false,
+      error: false,
+      url: null
+    }));
+
+    this.setState({
+      uploadedFiles: this.state.uploadedFiles.concat(uploadedFiles)
+    });
+  };
 
   render() {
+
+    const { uploadedFiles } = this.state;
+
     return (
       <Container>
         <Content>
           <Upload onUpload={this.handleUpload} />
-          <FileList />
+          {!!uploadedFiles.length && (
+            <FileList files={uploadedFiles} />
+          )}
         </Content>
         <GlobalStyle />
       </Container>
