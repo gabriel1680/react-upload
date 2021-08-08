@@ -8,7 +8,7 @@ import { Container, FileInfo, Preview, Status } from "./styles";
 function FileList({ files }) {
     return (
         <Container>
-            {/* <li>
+            <li>
                 <FileInfo>
                     <Preview src="blob:http://localhost:3000/5adcc9da-8981-4afb-a8fb-49ebc115fa43" />
                     <div>
@@ -58,8 +58,8 @@ function FileList({ files }) {
                 <Status>
                     <MdError size={24} color="#e57878" />
                 </Status>
-            </li> */}
-            {files.map(uploadedFile => (
+            </li>
+            {/* {files.map(uploadedFile => (
                 <li>
                     <FileInfo>
                         <Preview src={uploadedFile.preview} />
@@ -96,7 +96,7 @@ function FileList({ files }) {
                         )}
                     </Status>
                 </li>
-            ))}
+            ))} */}
         </Container>
     );
 }
