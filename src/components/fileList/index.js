@@ -8,9 +8,9 @@ import { Container, FileInfo, Preview, Status } from "./styles";
 function FileList({ files }) {
     return (
         <Container>
-            <li>
+            {/* <li>
                 <FileInfo>
-                    <Preview src="blob:http://localhost:3000/5adcc9da-8981-4afb-a8fb-49ebc115fa43" />
+                    <Preview src="blob:http://localhost:3000/26629cc0-c8a8-4869-9798-d649e2d12f70" />
                     <div>
                         <strong>Imagem 1</strong>
                         <span>64kb<button onClick={() => {}}>Excluir</button> </span>
@@ -19,7 +19,7 @@ function FileList({ files }) {
 
                 <Status>
 
-                    <a href="blob:http://localhost:3000/5adcc9da-8981-4afb-a8fb-49ebc115fa43" target="_blank" rel="noopener noreferrer">
+                    <a href="blob:http://localhost:3000/c1c4ba40-f9fe-4bf2-a49f-abefc12150bc" target="_blank" rel="noopener noreferrer">
                         <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
                     </a>
 
@@ -28,7 +28,7 @@ function FileList({ files }) {
             </li>
             <li>
                 <FileInfo>
-                    <Preview src="blob:http://localhost:3000/3549466d-6e16-4c32-bfe2-9437b4acfb2f" />
+                    <Preview src="blob:http://localhost:3000/0891c2cd-7d01-43fe-92ba-f7a77fa4a185" />
                     <div>
                         <strong>Imagem 2</strong>
                         <span>64kb</span>
@@ -58,14 +58,19 @@ function FileList({ files }) {
                 <Status>
                     <MdError size={24} color="#e57878" />
                 </Status>
-            </li>
-            {/* {files.map(uploadedFile => (
+            </li> */}
+            {files.map(uploadedFile => (
                 <li>
                     <FileInfo>
                         <Preview src={uploadedFile.preview} />
                         <div>
                             <strong>{uploadedFile.name}</strong>
-                            <span>{uploadedFile.readableSize}<button onClick={() => {}}>Excluir</button> </span>
+                            <span>
+                                {uploadedFile.readableSize}
+                                {uploadedFile.uploaded && (
+                                    <button onClick={() => {}}>Excluir</button>
+                                )}
+                            </span>
                         </div>
                     </FileInfo>
 
@@ -96,7 +101,7 @@ function FileList({ files }) {
                         )}
                     </Status>
                 </li>
-            ))} */}
+            ))}
         </Container>
     );
 }
