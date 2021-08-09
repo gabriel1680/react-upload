@@ -2,7 +2,7 @@ import { Component } from "react";
 import { uniqueId } from "lodash";
 import filesize from "filesize";
 
-import GlobalStyle from "../global/global";
+import GlobalStyle from "../global";
 import { Container, Content } from "./styles";
 import Upload from "../upload";
 import FileList from "../fileList";

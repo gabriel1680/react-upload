@@ -14,4 +14,5 @@ export const Content = styled.div`
     background-color: #FFF;
     border-radius: 4px;
     padding: 20px;
+    box-shadow: 0 8px 8px -4px black;
 `;
