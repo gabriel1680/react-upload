@@ -6,6 +6,7 @@ import GlobalStyle from "../global";
 import { Container, Content } from "./styles";
 import Upload from "../upload";
 import FileList from "../fileList";
+import api from "../../api";
 
 class App extends Component {
 
@@ -28,6 +29,37 @@ class App extends Component {
 
     this.setState({
       uploadedFiles: this.state.uploadedFiles.concat(uploadedFiles)
+    });
+  };
+
+  processUpload = uploadedFile => {
+    const { file, name } = uploadedFile;
+
+    const data = new FormData();
+    data.append('file', file, name);
+
+    api.post('posts', data, {
+
+      onUploadProgress: e => {
+
+        const { loaded, total, id } = e;
+
+        const percent = Math.round((loaded * 100) / total);
+
+        const progress = parseInt(percent);
+
+        this.updateFileProgress(uploadedFile.id, {
+          progress,
+        });
+      }
+    });
+  };
+
+  updateFileProgress = (id, data) => {
+    this.setState({
+      uploadedFiles: this.state.uploadedFiles.map(uploadedFile => {
+        return id === uploadedFile.id ? { ...uploadedFile, ...data } : uploadedFile;
+      })
     });
   };
 

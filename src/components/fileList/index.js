@@ -60,7 +60,7 @@ function FileList({ files }) {
                 </Status>
             </li> */}
             {files.map(uploadedFile => (
-                <li>
+                <li key={uploadedFile.id}>
                     <FileInfo>
                         <Preview src={uploadedFile.preview} />
                         <div>
